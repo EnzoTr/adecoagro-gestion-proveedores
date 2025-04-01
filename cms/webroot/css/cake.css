@@ -282,12 +282,17 @@ input[type='color'] {
 }
 
 .glassy{
-    background: linear-gradient(90deg,rgba(231, 235, 237, 0.3),rgba(239, 237, 233, 0.3));
-    backdrop-filter: blur(100px);
+    background: linear-gradient(90deg,rgba(231, 235, 237, 0.3),rgba(239, 237, 233, 0.35));
+    backdrop-filter: blur(20px);
+}
+
+.glassy2{
+    background: linear-gradient(90deg,rgba(191, 196, 198, 0.3),rgba(205, 201, 195, 0.35));
+    backdrop-filter: blur(20px);
 }
 
 th,td{
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(13, 13, 13, 0.03);
 }
 
 

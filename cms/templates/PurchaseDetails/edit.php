@@ -28,9 +28,9 @@
                 <?php
                     echo $this->Form->control('purchase_id', ['options'=>$purchases, 'label' => 'Compra','placeholder' => 'Proveedor', 'class'=>'border-0 bg-secondary bg-opacity-10  rounded-4 mb-5']);
                    
-                    echo $this->Form->control('product', ['label'=>false,'placeholder' => 'Producto', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']);
-                    echo $this->Form->control('price', ['label'=>false,'placeholder' => 'Precio', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']);
-                    echo $this->Form->control('amount', ['label'=>false,'placeholder' => 'Cantidad', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']);
+                    echo $this->Form->control('product', ['label'=>false,'placeholder' => 'Producto', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);
+                    echo $this->Form->control('price', ['label'=>false,'placeholder' => 'Precio', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);
+                    echo $this->Form->control('amount', ['label'=>false,'placeholder' => 'Cantidad', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Enviar')) ?>

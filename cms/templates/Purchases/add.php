@@ -28,9 +28,9 @@
                     
                     <div class="purchase-detail">
                         <h4 class="mt-5"><i style="cursor:pointer" class="remove-detail bi bi-trash3 me-3"></i>  Detalles de Compra</h4>
-                        <?= $this->Form->control('purchase_details.0.product', ['label'=>false,'placeholder' => 'Producto', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']); ?>
-                        <?= $this->Form->control('purchase_details.0.price', ['label'=>false,'placeholder' => 'Precio', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']); ?>
-                        <?= $this->Form->control('purchase_details.0.amount', ['label'=>false,'placeholder' => 'Cantidad', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']); ?>
+                        <?= $this->Form->control('purchase_details.0.product', ['label'=>false,'placeholder' => 'Producto', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']); ?>
+                        <?= $this->Form->control('purchase_details.0.price', ['label'=>false,'placeholder' => 'Precio', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']); ?>
+                        <?= $this->Form->control('purchase_details.0.amount', ['label'=>false,'placeholder' => 'Cantidad', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']); ?>
                     </div>
                 </div>
             </fieldset>
@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
         newDiv.innerHTML = `
             <hr>
             <h4 class="mt-5"><i style="cursor:pointer" class="remove-detail bi bi-trash3 me-3"></i>  Detalles de Compra</h4>
-            <input placeholder="Producto" class="border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5" type="text" name="purchase_details[${detailIndex}][product]" required>
+            <input placeholder="Producto" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5" type="text" name="purchase_details[${detailIndex}][product]" required>
 
-            <input placeholder="Precio" class="border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5" type="number" name="purchase_details[${detailIndex}][price]" step="0.01" required>
+            <input placeholder="Precio" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5" type="number" name="purchase_details[${detailIndex}][price]" step="0.01" required>
             
-            <input placeholder="Cantidad" class="border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5" type="number" name="purchase_details[${detailIndex}][amount]" required>
+            <input placeholder="Cantidad" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5" type="number" name="purchase_details[${detailIndex}][amount]" required>
 
         `;
 
