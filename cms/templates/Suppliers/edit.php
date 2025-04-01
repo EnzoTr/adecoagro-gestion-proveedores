@@ -4,31 +4,33 @@
  * @var \App\Model\Entity\Supplier $supplier
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $supplier->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $supplier->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Suppliers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+<div class="row mt-5">
+    <aside class="col-2">
+        <div class="side-nav content px-4 py-2 d-flex flex-column gap-2 glassy">
+            <?= $this->Html->link('<i class="bi bi-list fs-1 me-3"></i> Proveedores', 
+                ['action' => 'index'], 
+                ['class' => 'side-nav-item d-flex align-items-center', 'escape' => false]) 
+            ?>
+            <?= $this->Form->postLink('<i class="bi bi-trash fs-1 me-3"></i> Eliminar', 
+                ['action' => 'delete', $supplier->id], 
+                ['confirm' => __('Are you sure you want to delete # {0}?', $supplier->id), 
+                'class' => 'side-nav-item d-flex align-items-center', 'escape' => false]) 
+            ?>
         </div>
     </aside>
-    <div class="column column-80">
-        <div class="suppliers form content">
+    <div class="col-10">
+        <div class="suppliers form content glassy">
             <?= $this->Form->create($supplier) ?>
-            <fieldset>
-                <legend><?= __('Edit Supplier') ?></legend>
+            <fieldset class=" d-flex flex-column gap-3">
+                <h3 class="fw-semibold mb-5"><?= __('Editar Proveedor') ?></h3>
                 <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('phone');
-                    echo $this->Form->control('email');
+                    echo $this->Form->control('name', ['label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']);
+                    echo $this->Form->control('address', ['label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']);
+                    echo $this->Form->control('phone', ['label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']);
+                    echo $this->Form->control('email', ['label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Enviar')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

@@ -1,7 +1,7 @@
 /* Milligram overrides */
 :root {
     /* The following are official CakePHP colors */
-    --color-cakephp-red: #d33c43;
+    --color-cakephp-red: #07553b;
     --color-cakephp-gray: #404041;
     --color-cakephp-blue: #2f85ae;
     --color-cakephp-lightblue: #34bdd7;
@@ -12,7 +12,7 @@
 
     --color-main-bg: #f5f7fa;
     --color-links: var(--color-cakephp-blue);
-    --color-links-active: #2a6496;
+    --color-links-active: #07553b;
     --color-headings: #363637;
 
     --color-message-success-bg: #e3fcec;
@@ -35,7 +35,14 @@
 .button, button, input[type='button'], input[type='reset'], input[type='submit'] {
     background-color: var(--color-cakephp-red);
     border-color: var(--color-cakephp-red);
+    border-radius: 1rem;
+    transition: all .2s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
+
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -89,13 +96,16 @@ th a,
 }
 
 /* Main */
+
+
+
 .content {
     padding: 2rem;
     background: var(--color-white);
-    border-radius: 0.4rem;
+    border-radius: 1.5rem;
     /* Thanks Stripe */
-    box-shadow: 0 7px 14px 0 rgba(60, 66, 87, 0.1),
-        0 3px 6px 0 rgba(0, 0, 0, 0.07);
+    box-shadow: 0 7px 14px 0 rgba(60, 66, 87, 0.05),
+        0 3px 6px 0 rgba(0, 0, 0, 0.02);
 }
 .content form {
     margin: 0;
@@ -270,6 +280,16 @@ input[type='color'] {
     height: 100vh;
     justify-content: center;
 }
+
+.glassy{
+    background: linear-gradient(90deg,rgba(231, 235, 237, 0.3),rgba(239, 237, 233, 0.3));
+    backdrop-filter: blur(100px);
+}
+
+th,td{
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
 
 @media screen and (max-width: 640px) {
     /* Fix milligram not having a responsive column system */

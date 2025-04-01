@@ -4,14 +4,14 @@
  * @var iterable<\App\Model\Entity\PurchaseDetail> $purchaseDetails
  */
 ?>
-<div class="purchaseDetails index content">
+<div class="suppliers index content glassy mt-5">
     <?= $this->Html->link(__('Agregar Detalles'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Detalles de Compra') ?></h3>
-    <div class="table-responsive">
+    <h3 class="fw-semibold opacity-90"><?= __('Detalles de Compra') ?></h3>
+    <div class="table-responsive mt-5">
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id',['label' => 'Id']) ?></th>
+                    <th><?= $this->Paginator->sort('id',['label' => 'Id Detalles']) ?></th>
                     <th><?= $this->Paginator->sort('purchase_id',['label' => 'Id de Compra']) ?></th>
                     <th><?= $this->Paginator->sort('product',['label' => 'Producto']) ?></th>
                     <th><?= $this->Paginator->sort('amount',['label' => 'Cantidad']) ?></th>
@@ -19,7 +19,7 @@
                     <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="opacity-75">
                 <?php foreach ($purchaseDetails as $purchaseDetail): ?>
                 <tr>
                     <td><?= $this->Number->format($purchaseDetail->id) ?></td>
@@ -28,14 +28,21 @@
                     <td><?= $this->Number->format($purchaseDetail->amount) ?></td>
                     <td><?= $this->Number->format($purchaseDetail->price) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $purchaseDetail->id]) ?>
-                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $purchaseDetail->id]) ?>
+                        <?= $this->Html->link('<i class="bi bi-list fs-1"></i>',
+                            ['controller' => 'PurchaseDetails', 'action' => 'view', $purchaseDetail->id],
+                            ['class' => 'align-items-center', 'escape' => false]) 
+                            ?>
+                        <?= $this->Html->link('<i class="bi bi-pencil fs-1"></i>',
+                            ['controller' => 'PurchaseDetails', 'action' => 'edit', $purchaseDetail->id],
+                            ['class' => 'align-items-center', 'escape' => false]) 
+                            ?>
                         <?= $this->Form->postLink(
-                            __('Eliminar'),
-                            ['action' => 'delete', $purchaseDetail->id],
+                            '<i class="bi bi-trash fs-1"></i>',
+                            ['controller' => 'PurchaseDetails', 'action' => 'delete', $purchaseDetail->id],
                             [
                                 'method' => 'delete',
                                 'confirm' => __('Quieres eliminar # {0}?', $purchaseDetail->id),
+                                'class' => 'align-items-center', 'escape' => false,
                             ]
                         ) ?>
                     </td>
@@ -45,13 +52,13 @@
         </table>
     </div>
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('primero')) ?>
-            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
+        <ul class="pagination justify-content-between align-items-center">
+            <?= $this->Paginator->first('<i class="bi bi-chevron-double-left fs-2"></i>', ['escape' => false]) ?>
+            <?= $this->Paginator->prev('<i class="bi bi-chevron-left fs-2"></i>', ['escape' => false]) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
-            <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
+            <p class="opacity-50 fs-5 text-center"><?= $this->Paginator->counter(__('{{page}} - {{pages}}',)) ?></p>
+            <?= $this->Paginator->next('<i class="bi bi-chevron-right fs-2"></i>', ['escape' => false]) ?>
+            <?= $this->Paginator->last('<i class="bi bi-chevron-double-right fs-2"></i>', ['escape' => false]) ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Pagina {{page}} de {{pages}}, mostrando {{current}} filas de {{count}} totales')) ?></p>
     </div>
 </div>

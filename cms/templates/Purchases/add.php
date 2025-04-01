@@ -5,36 +5,37 @@
  * @var \Cake\Collection\CollectionInterface|string[] $suppliers
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Acciones') ?></h4>
-            <?= $this->Html->link(__('Ver Compras'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+<div class="row mt-5">
+    <aside class="col-2">
+        <div class="side-nav content px-4 py-2 d-flex flex-column gap-2 glassy" >
+            <?= $this->Html->link('<i class="bi bi-list fs-1 me-3"></i> Compras', 
+                ['action' => 'index'], 
+                ['class' => 'side-nav-item d-flex align-items-center', 'escape' => false]) 
+            ?>
+            <!-- <a id="add-detail-btn" style="cursor:pointer" class="side-nav-item d-flex align-items-center cursor-pointer"><i class="bi bi-list fs-1 me-3"></i> Agregar Producto</a> -->
         </div>
     </aside>
-    <div class="column column-80">
-        <div class="purchases form content">
+    <div class="col-10">
+        <div class="purchases form content glassy">
             <?= $this->Form->create($purchase) ?>
-            <fieldset>
-                <legend><?= __('Agregar Compra') ?></legend>
+            <fieldset class=" d-flex flex-column gap-3">
+            <h3 class="fw-semibold mb-4"><?= __('Agregar Compra') ?></h3>
                 <?php
-                    echo $this->Form->control('supplier_id', ['options' => $suppliers, 'label' => 'Compra']);
+                    echo $this->Form->control('supplier_id', ['options' => $suppliers, 'label' => false,'placeholder' => 'Proveedor', 'class'=>'border-0 bg-secondary bg-opacity-10  rounded-4']);
                 ?>
-
+    
                 <div id="purchase-details-container">
-                    <h4>Detalles de Compra</h4>
-                    <button type="button" id="add-detail-btn" class="button">➕ Agregar Producto</button>
-                    <br><br>
-
+                    
                     <div class="purchase-detail">
-                        <?= $this->Form->control('purchase_details.0.product', ['label' => 'Producto']); ?>
-                        <?= $this->Form->control('purchase_details.0.price', ['label' => 'Precio']); ?>
-                        <?= $this->Form->control('purchase_details.0.amount', ['label' => 'Cantidad']); ?>
-                        <button type="button" class="remove-detail button alert">❌ Eliminar</button>
+                        <h4 class="mt-5"><i style="cursor:pointer" class="remove-detail bi bi-trash3 me-3"></i>  Detalles de Compra</h4>
+                        <?= $this->Form->control('purchase_details.0.product', ['label'=>false,'placeholder' => 'Producto', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']); ?>
+                        <?= $this->Form->control('purchase_details.0.price', ['label'=>false,'placeholder' => 'Precio', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']); ?>
+                        <?= $this->Form->control('purchase_details.0.amount', ['label'=>false,'placeholder' => 'Cantidad', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5']); ?>
                     </div>
                 </div>
             </fieldset>
-            <?= $this->Form->button(__('Enviar')) ?>
+            <button type="button" id="add-detail-btn" class="button d-flex  align-items-center"><i class="bi bi-plus-circle fs-3 me-3"></i> Agregar Producto</button>
+            <?= $this->Form->button(__('Enviar'),['class'=>'']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
@@ -53,16 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
         newDiv.classList.add("purchase-detail");
         newDiv.innerHTML = `
             <hr>
-            <label for="purchase-details-${detailIndex}-product">Producto</label>
-            <input type="text" name="purchase_details[${detailIndex}][product]" required>
+            <h4 class="mt-5"><i style="cursor:pointer" class="remove-detail bi bi-trash3 me-3"></i>  Detalles de Compra</h4>
+            <input placeholder="Producto" class="border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5" type="text" name="purchase_details[${detailIndex}][product]" required>
 
-            <label for="purchase-details-${detailIndex}-price">Precio</label>
-            <input type="number" name="purchase_details[${detailIndex}][price]" step="0.01" required>
+            <input placeholder="Precio" class="border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5" type="number" name="purchase_details[${detailIndex}][price]" step="0.01" required>
+            
+            <input placeholder="Cantidad" class="border-0 bg-secondary bg-opacity-10 glassy rounded-4 p-5" type="number" name="purchase_details[${detailIndex}][amount]" required>
 
-            <label for="purchase-details-${detailIndex}-amount">Cantidad</label>
-            <input type="number" name="purchase_details[${detailIndex}][amount]" required>
-
-            <button type="button" class="remove-detail button alert">❌ Eliminar</button>
         `;
 
         container.appendChild(newDiv);
@@ -71,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("purchase-details-container").addEventListener("click", function (event) {
         if (event.target.classList.contains("remove-detail")) {
-            event.target.parentElement.remove();
+            event.target.closest(".purchase-detail").remove();
         }
     });
 });

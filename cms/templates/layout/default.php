@@ -14,7 +14,7 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Adecoagro | User Management';
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,22 +25,26 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
-    <?= $this->Html->meta('icon') ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <?= $this->Html->meta('icon','https://companieslogo.com/img/orig/AGRO-fdbaffba.png?t=1720244490') ?>
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
+    <?= $this->Html->css(['bootstrap.min' ,'normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
+    <?= $this->Html->script(['bootstrap.bundle.min']) ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
-    <nav class="top-nav">
+<body style="background: linear-gradient(90deg,rgb(190, 207, 213),rgb(215, 210, 197));">
+    <nav class="top-nav mt-4">
         <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+            <a href="<?= $this->Url->build('/') ?>"><img src="https://companieslogo.com/img/orig/AGRO_BIG-6559c4fd.png?t=1720244490" alt="Adecoagro" style="width: 100%; max-width: 7em;"></a>
         </div>
-        <div class="top-nav-links">
-            <?= $this->Html->link(__('Proveedores'), ['controller' => 'Suppliers', 'action' => 'index']) ?>
-            <?= $this->Html->link(__('Compras'), ['controller' => 'Purchases', 'action' => 'index']) ?>
+        <div class="top-nav-links d-flex gap-4">
+            <?= $this->Html->link(__('PROVEEDORES'), ['controller' => 'Suppliers', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('COMPRAS'), ['controller' => 'Purchases', 'action' => 'index']) ?>
         </div>
     </nav>
     <main class="main">
@@ -51,5 +55,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </main>
     <footer>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
