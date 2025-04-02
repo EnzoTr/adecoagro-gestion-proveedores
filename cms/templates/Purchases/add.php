@@ -24,8 +24,8 @@
                     echo $this->Form->control('supplier_id', ['options' => $suppliers, 'label' => false,'placeholder' => 'Proveedor', 'class'=>'border-0 bg-secondary bg-opacity-10  rounded-4']);
                 ?>
     
+                <!-- Contenedor dinamico para los detalles de compra -->
                 <div id="purchase-details-container">
-                    
                     <div class="purchase-detail">
                         <h4 class="mt-5"><i style="cursor:pointer" class="remove-detail bi bi-trash3 me-3"></i>  Detalles de Compra</h4>
                         <?= $this->Form->control('purchase_details.0.product', ['label'=>false,'placeholder' => 'Producto', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']); ?>
@@ -34,8 +34,9 @@
                     </div>
                 </div>
             </fieldset>
+            <!-- Boton para agregar detalles de compra -->
             <button type="button" id="add-detail-btn" class="button d-flex  align-items-center"><i class="bi bi-plus-circle fs-3 me-3"></i> Agregar Producto</button>
-            <?= $this->Form->button(__('Enviar'),['class'=>'']) ?>
+            <?= $this->Form->button(__('Enviar'),['class'=>'d-flex']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
@@ -43,7 +44,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    let detailIndex = 1; // Empezamos en 1 porque el primero ya está en el HTML
+    let detailIndex = 1;
     let addDetailBtn = document.getElementById("add-detail-btn");
 
     addDetailBtn.addEventListener("click", function () {
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         container.appendChild(newDiv);
-        detailIndex++; // Incrementamos para la siguiente fila
+        detailIndex++;
     });
 
     document.getElementById("purchase-details-container").addEventListener("click", function (event) {
@@ -72,5 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
             event.target.closest(".purchase-detail").remove();
         }
     });
+
 });
 </script>

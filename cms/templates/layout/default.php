@@ -37,7 +37,7 @@ $cakeDescription = 'Adecoagro | User Management';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body style="background: linear-gradient(90deg,rgb(190, 207, 213),rgb(215, 210, 197));">
+<body style="background: linear-gradient(90deg,rgb(169, 187, 193),rgb(215, 210, 197));">
     <nav class="top-nav mt-4">
         <div class="top-nav-title">
             <a href="<?= $this->Url->build('/') ?>"><img src="https://companieslogo.com/img/orig/AGRO_BIG-6559c4fd.png?t=1720244490" alt="Adecoagro" style="width: 100%; max-width: 7em;"></a>

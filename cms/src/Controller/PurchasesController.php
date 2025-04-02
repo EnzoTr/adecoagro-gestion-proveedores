@@ -18,7 +18,7 @@ class PurchasesController extends AppController
     public function index()
     {
         $query = $this->Purchases->find()
-            ->contain(['Suppliers', 'PurchaseDetails']);
+            ->contain(['Suppliers', 'PurchaseDetails']); // Se incluye PurchaseDetails para agregar los detalles desde la compra
         $purchases = $this->paginate($query);
 
         $this->set(compact('purchases'));
@@ -33,7 +33,7 @@ class PurchasesController extends AppController
      */
     public function view($id = null)
     {
-        $purchase = $this->Purchases->get($id, contain: ['Suppliers', 'PurchaseDetails']);
+        $purchase = $this->Purchases->get($id, contain: ['Suppliers', 'PurchaseDetails']); // Se incluye PurchaseDetails para agregar los detalles desde la compra
         $this->set(compact('purchase'));
     }
 
@@ -67,7 +67,7 @@ class PurchasesController extends AppController
      */
     public function edit($id = null)
     {
-        $purchase = $this->Purchases->get($id, contain: ['Suppliers', 'PurchaseDetails']);
+        $purchase = $this->Purchases->get($id, contain: ['Suppliers', 'PurchaseDetails']); // Se incluye PurchaseDetails para agregar los detalles desde la compra
         if ($this->request->is(['patch', 'post', 'put'])) {
             $purchase = $this->Purchases->patchEntity($purchase, $this->request->getData());
             if ($this->Purchases->save($purchase)) {
