@@ -21,6 +21,7 @@
             <fieldset class=" d-flex flex-column gap-3">
             <h3 class="fw-semibold mb-4"><?= __('Agregar Compra') ?></h3>
                 <?php
+                    echo $this->Form->control('date', ['label'=>false,'placeholder' => 'Fecha', 'style'=>'display: none']);
                     echo $this->Form->control('supplier_id', ['options' => $suppliers, 'label' => false,'placeholder' => 'Proveedor', 'class'=>'border-0 bg-secondary bg-opacity-10  rounded-4']);
                 ?>
     

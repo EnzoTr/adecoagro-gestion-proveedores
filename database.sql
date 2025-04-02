@@ -5,7 +5,7 @@ USE adeco_supplier_management;
 CREATE TABLE suppliers (
     id INT AUTO_INCREMENT PRIMARY KEY,
 
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL UNIQUE,
     address VARCHAR(255),
     phone VARCHAR(20),
     email VARCHAR(100),

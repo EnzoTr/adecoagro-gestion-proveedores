@@ -19,6 +19,7 @@
             <fieldset class=" d-flex flex-column gap-3">
                 <h3 class="fw-semibold mb-5"><?= __('Agregar Proveedor') ?></h3>
                 <?php
+                    echo $this->Form->control('register_date', ['label'=>false,'placeholder' => 'Fecha', 'style'=>'display: none']);
                     echo $this->Form->control('name', ['label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);
                     echo $this->Form->control('address', ['label'=>false,'placeholder' => 'Direccion', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);
                     echo $this->Form->control('phone', ['label'=>false,'placeholder' => 'Telefono', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);
