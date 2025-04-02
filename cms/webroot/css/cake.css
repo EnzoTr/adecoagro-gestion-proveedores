@@ -295,6 +295,42 @@ th,td{
     border-bottom: 2px solid rgba(13, 13, 13, 0.03);
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4c4c4; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8b8b8; 
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 10px;
+}
+
+th:nth-child(5), td:nth-child(5) { 
+    max-width: 150px;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+.actions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.actions ul li {
+    display: inline-block;
+    margin-right: 8px;
+}
+
 
 @media screen and (max-width: 640px) {
     /* Fix milligram not having a responsive column system */

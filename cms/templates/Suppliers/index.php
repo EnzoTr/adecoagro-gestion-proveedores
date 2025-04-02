@@ -4,7 +4,7 @@
  * @var iterable<\App\Model\Entity\Supplier> $suppliers
  */
 ?>
-<div class="suppliers index content glassy mt-5">
+<div class="suppliers index content glassy mt-5 col-12">
     <?= $this->Html->link(__('Agregar Proveedor'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3 class="fw-semibold opacity-90"><?= __('Proveedores') ?></h3>
     <div class="table-responsive mt-5">
@@ -22,45 +22,34 @@
             </thead>
             <tbody class="opacity-75">
                 <?php foreach ($suppliers as $supplier): ?>
-                <tr>
+                <tr class=" h-100 align-items-center justify-center">
                     <td><?= $this->Number->format($supplier->id) ?></td>
                     <td><?= h($supplier->name) ?></td>
                     <td><?= h($supplier->address) ?></td>
                     <td><?= h($supplier->phone) ?></td>
-                    <td><?= h($supplier->email) ?></td>
+                    <td title="<?= h($supplier->email) ?>"><?= h($supplier->email) ?></td>
                     <td><?= h($supplier->register_date) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link('<i class="bi bi-list fs-1"></i>',
-                                    ['controller' => 'Suppliers', 'action' => 'view', $supplier->id],
-                                    ['class' => 'align-items-center', 'escape' => false]) 
-                                 ?>
-                                <?= $this->Html->link('<i class="bi bi-pencil fs-1"></i>',
-                                    ['controller' => 'Suppliers', 'action' => 'edit', $supplier->id],
-                                    ['class' => 'align-items-center', 'escape' => false]) 
-                                 ?>
-                                <?= $this->Form->postLink(
-                                    '<i class="bi bi-trash fs-1"></i>',
-                                    ['controller' => 'Suppliers', 'action' => 'delete', $supplier->id],
-                                    [
-                                        'method' => 'delete',
-                                        'confirm' => __('Quieres eliminar # {0}?', $supplier->id),
-                                        'class' => 'align-items-center', 'escape' => false,
-                                    ]
-                                ) ?>
-                            </td>
+                    <td class="actions h-100 align-items-center justify-center">
+                    <ul class="d-flex align-items-center justify-center gap-2 h-100">
+                        <li><?= $this->Html->link('<i class="bi bi-list fs-2"></i>', ['action' => 'view', $supplier->id], ['escape' => false]) ?></li>
+                        <li><?= $this->Html->link('<i class="bi bi-pencil fs-2"></i>', ['action' => 'edit', $supplier->id], ['escape' => false]) ?></li>
+                        <li><?= $this->Form->postLink('<i class="bi bi-trash fs-2"></i>', ['action' => 'delete', $supplier->id], ['method' => 'delete', 'confirm' => __('Quieres eliminar # {0}?', $supplier->id), 'escape' => false]) ?></li>
+                    </ul>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
     <div class="paginator">
-        <ul class="pagination justify-content-between align-items-center">
+        <ul class="pagination justify-content-between align-items-center my-4">
             <?= $this->Paginator->first('<i class="bi bi-chevron-double-left fs-2"></i>', ['escape' => false]) ?>
             <?= $this->Paginator->prev('<i class="bi bi-chevron-left fs-2"></i>', ['escape' => false]) ?>
             <?= $this->Paginator->numbers() ?>
-            <p class="opacity-50 fs-5 text-center"><?= $this->Paginator->counter(__('{{page}} - {{pages}}',)) ?></p>
+            
             <?= $this->Paginator->next('<i class="bi bi-chevron-right fs-2"></i>', ['escape' => false]) ?>
             <?= $this->Paginator->last('<i class="bi bi-chevron-double-right fs-2"></i>', ['escape' => false]) ?>
         </ul>
+        <p class="opacity-50 fs-5 text-center"><?= $this->Paginator->counter(__('{{page}} - {{pages}}',)) ?></p>
     </div>
 </div>
