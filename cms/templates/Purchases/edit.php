@@ -34,9 +34,10 @@
                     <?php foreach ($purchase->purchase_details as $index => $detail): ?>
                         <div class="purchase-detail">
                             <h4 class="mt-5"><i style="cursor:pointer" class="remove-detail bi bi-trash3 me-3"></i>  Detalles de Compra</h4>
-                            <?= $this->Form->control("purchase_details.{$index}.product", ['value' => $detail->product, 'label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);?>
-                            <?= $this->Form->control("purchase_details.{$index}.price", ['type' => 'number', 'step' => '0.01', 'value' => $detail->price, 'label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);?>
-                            <?= $this->Form->control("purchase_details.{$index}.amount", ['type' => 'number', 'value' => $detail->amount, 'label'=>false,'placeholder' => 'Nombre', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);?>
+                            <?= $this->Form->hidden("purchase_details.{$index}.id", ['value' => $detail->id]); ?>
+                            <?= $this->Form->control("purchase_details.{$index}.product", ['value' => $detail->product, 'label'=>false,'placeholder' => 'Producto', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);?>
+                            <?= $this->Form->control("purchase_details.{$index}.price", ['type' => 'number', 'step' => '0.01', 'value' => $detail->price, 'label'=>false,'placeholder' => 'Precio', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);?>
+                            <?= $this->Form->control("purchase_details.{$index}.amount", ['type' => 'number', 'value' => $detail->amount, 'label'=>false,'placeholder' => 'Cantidad', 'class'=>'border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5']);?>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -63,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <input placeholder="Producto" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5"  type="text" name="purchase_details[${detailIndex}][product]" required>
 
 
-            <input placeholder="Producto" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5"  type="number" name="purchase_details[${detailIndex}][price]" step="0.01" required>
+            <input placeholder="Precio" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5"  type="number" name="purchase_details[${detailIndex}][price]" step="0.01" required>
 
 
-            <input placeholder="Producto" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5"  type="number" name="purchase_details[${detailIndex}][amount]" required>
+            <input placeholder="Cantidad" class="border-0 bg-secondary bg-opacity-10 glassy2 rounded-4 p-5"  type="number" name="purchase_details[${detailIndex}][amount]" required>
 
         `;
 

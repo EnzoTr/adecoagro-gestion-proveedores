@@ -98,6 +98,6 @@ class PurchasesController extends AppController
             $this->Flash->error(__('The purchase could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect($this->request->referer());
     }
 }

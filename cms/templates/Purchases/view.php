@@ -29,7 +29,7 @@
     </aside>
     <div class="col-10">
         <div class="purchases view content glassy">
-            <h3 class="fw-semibold">Compra <?= h($purchase->id) ?></h3>
+            <h3 class="fw-semibold">Número de Compra #<?= h($purchase->id) ?></h3>
             <table>
                 <tr>
                     <th><?= __('Proveedor') ?></th>
@@ -51,7 +51,7 @@
                     <table>
                         <tr>
                             <th><?= __('Id Detalles') ?></th>
-                            <th><?= __('Id Compra') ?></th>
+                            
                             <th><?= __('Producto') ?></th>
                             <th><?= __('Cantidad') ?></th>
                             <th><?= __('Precio') ?></th>
@@ -60,7 +60,7 @@
                         <?php foreach ($purchase->purchase_details as $purchaseDetail) : ?>
                         <tr>
                             <td><?= h($purchaseDetail->id) ?></td>
-                            <td><?= h($purchaseDetail->purchase_id) ?></td>
+                            
                             <td><?= h($purchaseDetail->product) ?></td>
                             <td><?= h($purchaseDetail->amount) ?></td>
                             <td><?= h($purchaseDetail->price) ?></td>
